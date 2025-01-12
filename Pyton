@@ -1,0 +1,228 @@
+                                               //  Quadratic Equation
+
+import math
+a=float(input("Enter the coefficient a:"))
+b=float(input("Enter the coefficient b:"))
+c=float(input("Enter the coefficient c:"))
+discriminant=b*b-4*a*c
+if a==0:
+    print("This is not Quadratic Equation,'a' should not be 0.")
+else:
+    if discriminant>0:
+        root1=(-b+math.sqrt(discriminant))/(2*a)
+        root2=(-b-math.sqrt(discriminant))/(2*a)
+        print("The Equation has Real & Distant roots.")
+        print("Root1=",root1)
+        print("Root2=",root2)
+    elif discriminant==0:
+        root=-b/(2*a)
+        print("The Equation has Real and Equal roots",root)
+    else:
+        real_part=-b/(2*a)
+        imaginary_part=math.sqrt(abs(discriminant))/(2*a)
+        print("The Equation has Complex Roots")
+        print(f"root1={real_part}+{imaginary_part}i")
+        print(f"root2={real_part}+{imaginary_part}i")
+
+
+                                             // Designer Door Mat
+
+def designer_door_mat(N, M):
+    # Top part
+    for i in range(1, N, 2):
+        pattern = (".|." * i).center(M, '-')
+        print(pattern)
+    
+    # Middle part
+    print("WELCOME".center(M, '-'))
+    
+    # Bottom part
+    for i in range(N - 2, 0, -2):
+        pattern = (".|." * i).center(M, '-')
+        print(pattern)
+
+# Example usage:
+N, M = 7, 21
+designer_door_mat(N, M)
+
+                                              // Real Time Clock
+
+import tkinter as tk
+import time
+import math
+
+# Initialize the main window
+root = tk.Tk()
+root.title("Analog Clock")
+root.geometry("400x400")
+root.resizable(False, False)
+
+# Set up the canvas for drawing
+canvas = tk.Canvas(root, width=400, height=400, bg="white")
+canvas.pack()
+
+# Function to draw the clock face
+def draw_clock_face():
+    # Draw the clock outline
+    canvas.create_oval(50, 50, 350, 350, width=4)
+
+    # Draw hour markers
+    for i in range(12):
+        angle = math.radians(i * 30)  # 30 degrees for each hour
+        x_inner = 200 + 120 * math.sin(angle)
+        y_inner = 200 - 120 * math.cos(angle)
+        x_outer = 200 + 140 * math.sin(angle)
+        y_outer = 200 - 140 * math.cos(angle)
+        canvas.create_line(x_inner, y_inner, x_outer, y_outer, width=3)
+
+# Function to update the clock hands
+def update_clock():
+    # Clear previous hands
+    canvas.delete("hands")
+    
+    # Get the current time
+    current_time = time.localtime()
+    hours = current_time.tm_hour % 12
+    minutes = current_time.tm_min
+    seconds = current_time.tm_sec
+
+    # Calculate the angles for each hand
+    second_angle = math.radians(seconds * 6)  # 360° / 60 = 6° per second
+    minute_angle = math.radians(minutes * 6 + seconds * 0.1)  # 6° per minute + second offset
+    hour_angle = math.radians(hours * 30 + minutes * 0.5)  # 30° per hour + minute offset
+
+    # Calculate end coordinates for each hand
+    second_x = 200 + 90 * math.sin(second_angle)
+    second_y = 200 - 90 * math.cos(second_angle)
+    minute_x = 200 + 70 * math.sin(minute_angle)
+    minute_y = 200 - 70 * math.cos(minute_angle)
+    hour_x = 200 + 50 * math.sin(hour_angle)
+    hour_y = 200 - 50 * math.cos(hour_angle)
+
+    # Draw the hands
+    canvas.create_line(200, 200, second_x, second_y, fill="red", width=1, tags="hands")
+    canvas.create_line(200, 200, minute_x, minute_y, fill="blue", width=3, tags="hands")
+    canvas.create_line(200, 200, hour_x, hour_y, fill="black", width=5, tags="hands")
+
+    # Schedule the function to run every 1000 ms (1 second)
+    root.after(1000, update_clock)
+
+# Draw the clock face once
+draw_clock_face()
+
+# Start the clock
+update_clock()
+
+# Run the tkinter event loop
+root.mainloop()
+
+// Simple Calculator
+
+num1=float(input("Enter the first number:"))
+num2=float(input("Enter the second number:"))
+add=num1+num2
+sub=num1-num2
+multi=num1*num2
+div=num1/num2
+if num2==0:
+    print("DIVISION ERROR")
+else:
+    div=num1/num2
+print("The sum is",add)
+print("The substraction is",sub)
+print("The multiplication is",multi)
+print("The division is",div)
+
+                                                 # Palindrome Number
+
+def isPalindrome(str):
+
+    # Run loop from 0 to len/2
+    for i in range(0, int(len(str)/2)):
+        if str[i] != str[len(str)-i-1]:
+            return False
+    return True
+
+# main function
+s = str(input("Enter a word :"))
+ans = isPalindrome(s)
+
+if (ans):
+    print("Yes")
+else:
+    print("No")
+ 
+                                                  # Python program to check if the number is an Armstrong number or not
+
+# take input from the user
+num = int(input("Enter a number: "))
+
+# initialize sum
+sum = 0
+
+# find the sum of the cube of each digit
+temp = num
+while temp > 0:
+   digit = temp % 10
+   sum += digit ** 3
+   temp //= 10
+
+# display the result
+if num == sum:
+   print(num,"is an Armstrong number")
+else:
+   print(num,"is not an Armstrong number")
+
+                                                # Program to display calendar of the given month and year
+
+import calendar
+
+yy = 2014  # year
+mm = 11    # month
+
+# To take month and year input from the user
+# yy = int(input("Enter year: "))
+# mm = int(input("Enter month: "))
+
+# display the calendar
+print(calendar.month(yy, mm))
+
+                                                # Program to add two matrices using nested loop
+
+X = [[12,7,3],
+    [4 ,5,6],
+    [7 ,8,9]]
+
+Y = [[5,8,1],
+    [6,7,3],
+    [4,5,9]]
+
+result = [[0,0,0],
+         [0,0,0],
+         [0,0,0]]
+
+# iterate through rows
+for i in range(len(X)):
+   # iterate through columns
+   for j in range(len(X[0])):
+       result[i][j] = X[i][j] + Y[i][j]
+
+for r in result:
+   print(r)
+
+                                              # Python Program to Create a Countdown Timer
+
+import time
+def countdown(time_sec):
+    while time_sec:
+        mins, secs = divmod(time_sec, 60)
+        timeformat = '{:02d}:{:02d}'.format(mins, secs)
+        print(timeformat, end='\r')
+        time.sleep(1)
+        time_sec -= 1
+
+    print("stop")
+
+countdown(5)
+
+                                            #
