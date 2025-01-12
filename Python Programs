@@ -225,4 +225,83 @@ def countdown(time_sec):
 
 countdown(5)
 
-                                            #
+                                            # Python program to convert decimal into other number systems
+dec = 344
+
+print("The decimal value of", dec, "is:")
+print(bin(dec), "in binary.")
+print(oct(dec), "in octal.")
+print(hex(dec), "in hexadecimal.")
+
+                                          # Python program to shuffle a deck of card
+
+# importing modules
+import itertools, random
+
+# make a deck of cards
+deck = list(itertools.product(range(1,14),['Spade','Heart','Diamond','Club']))
+
+# shuffle the cards
+random.shuffle(deck)
+
+# draw five cards
+print("You got:")
+for i in range(5):
+   print(deck[i][0], "of", deck[i][1])
+
+                                            # Fibonacci up to n number
+def fibonacci_up_to_number(limit):
+    fib_sequence = []
+    a, b = 0, 1
+    while a <= limit:
+        fib_sequence.append(a)
+        a, b = b, a + b
+    return fib_sequence
+
+# Input from the user
+limit = int(input("Enter the limit number: "))
+fib_sequence = fibonacci_up_to_number(limit)
+print("Fibonacci sequence up to", limit, ":", fib_sequence)
+
+                                          # Program to check if a number is prime or not
+
+num = 29
+
+# To take input from the user
+num = int(input("Enter a Number :"))
+
+# define a flag variable
+flag = False
+
+if num == 0 or num == 1:
+    print(num, "is not a prime number")
+elif num > 1:
+    # check for factors
+    for i in range(2, num):
+        if (num % i) == 0:
+            # if factor is found, set flag to True
+            flag = True
+            # break out of loop
+            break
+
+    # check if flag is True
+    if flag:
+        print(num, "is not a prime number")
+    else:
+        print(num, "is a prime number")
+
+                                          # Sum of natural numbers up to num
+
+num = 16
+
+if num < 0:
+   print("Enter a positive number")
+else:
+   sum = 0
+   # use while loop to iterate until zero
+   while(num > 0):
+       sum += num
+       num -= 1
+   print("The sum is", sum)
+
+                                          #
